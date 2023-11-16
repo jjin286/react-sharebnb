@@ -18,6 +18,8 @@ function ListingsList() {
     setListings(await SharebnbApi.getListings({ search: searchTerm }));
   }
 
+
+  if(!listings) return <h1>Loading ...</h1>
   return (
     <div className="ListingsList" style={{display: "flex", flexWrap:"wrap"}}>
       <SearchForm search={getListings}/>

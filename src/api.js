@@ -60,7 +60,15 @@ class SharebnbApi {
 
     const res = await this.request(`listings`, data);
 
+    // console.log("GET LISTINGS", res.listings)
     return res.listings; //array
+  }
+
+  static async getListing(listingId) {
+    console.log("LISTING ID", listingId)
+    const res = await this.request(`listings/${listingId}`);
+
+    return res.listing; //array
   }
 
   static async addListing(data) {
@@ -84,6 +92,24 @@ class SharebnbApi {
         authorization: `Bearer ${SharebnbApi.token}`
       }
     });
+  }
+
+  static async login(username, password){
+    const res = await this.request(`auth/login`, {username, password}, "POST");
+
+    return res.token;
+  }
+
+  static async register(formData){
+    const res = await this.request(`auth/register`, formData, "POST");
+
+    return res.token;
+  }
+
+  static async getUser(username){
+    const res = await this.request(`users/${username}`);
+
+    return res.user;
   }
 
   /** Get details on a company by handle. */

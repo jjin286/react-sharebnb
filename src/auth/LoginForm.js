@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm({ login }) {
   const [formData, setFormData] = useState({
     username: "",
     password: ""
   });
+  const navigate = useNavigate();
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -14,6 +16,7 @@ function LoginForm({ login }) {
       username: "",
       password: ""
     });
+    navigate("/listings");
   }
 
   function handleChange(evt) {
@@ -38,7 +41,7 @@ function LoginForm({ login }) {
 
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           placeholder="password"
           name="password"
           value={formData.password}

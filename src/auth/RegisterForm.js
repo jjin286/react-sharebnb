@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Register({ register }) {
   const [formData, setFormData] = useState({
@@ -10,12 +11,13 @@ function Register({ register }) {
     last_name: "",
     is_host: false
   });
+  const navigate = useNavigate();
 
   //TODO: need to convert the is_host value to boolean
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    register(formData);
+    await register(formData);
     setFormData({
       username: "",
       password: "",
@@ -24,6 +26,7 @@ function Register({ register }) {
       last_name: "",
       is_host: false
     });
+    navigate("/listings")
   }
 
   function handleChange(evt) {
@@ -48,7 +51,7 @@ function Register({ register }) {
 
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           placeholder="password"
           name="password"
           value={formData.password}
@@ -78,22 +81,25 @@ function Register({ register }) {
           value={formData.last_name}
           onChange={handleChange} />
 
+        <fieldset>
+          <legend>Are you a host?</legend>
+          <label htmlFor="is_host">Yes</label>
+          <input
+            type="radio"
+            name="is_host"
+            value="true"
+            checked={formData.is_host === "true"}
+            onChange={handleChange} />
 
-        <label htmlFor="is_host">Yes</label>
-        <input
-          type="radio"
-          name="is_host"
-          value="true"
-          checked={formData.is_host === "true"}
-          onChange={handleChange} />
+          <label htmlFor="is_host">No</label>
+          <input
+            type="radio"
+            name="is_host"
+            value="false"
+            checked={formData.is_host === "false"}
+            onChange={handleChange} />
+        </fieldset>
 
-        <label htmlFor="is_host">No</label>
-        <input
-          type="radio"
-          name="is_host"
-          value="false"
-          checked={formData.is_host === "false"}
-          onChange={handleChange} />
 
 
         <button type="submit">Register</button>
