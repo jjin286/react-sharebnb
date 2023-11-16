@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import SharebnbApi from './api';
+import { useNavigate } from 'react-router-dom';
 
 function AddListingForm() {
   const [formData, setFormData] = useState({
@@ -9,13 +11,13 @@ function AddListingForm() {
     city:"",
     state:"",
     zipcode:"",
-    price_per_day:"",
-    host_id:""
+    price_per_day:""
   })
   const [image, setImage] = useState(null);
+  const navigate = useNavigate();
 
   function handleChange(evt){
-    const [name, value] = evt.target;
+    const {name, value} = evt.target;
 
     setFormData(curr => {
       return {...curr, [name]:value}
@@ -26,8 +28,12 @@ function AddListingForm() {
     setImage(evt.target.files[0]);
   }
 
-  function handleSubmit(){
-
+  async function handleSubmit(evt){
+    evt.preventDefault();
+    // FIXME: Hard coded host_id
+    const data = {...formData, image, host_id:"host"};
+    await SharebnbApi.addListing(data);
+    navigate("/listing");
   }
 
 
@@ -102,17 +108,6 @@ function AddListingForm() {
             type="number"
             className="form-control  "
             name="price_per_day"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            className="form-control  "
-            name="email"
             onChange={handleChange}
           />
         </div>

@@ -1,3 +1,5 @@
+import { Form } from "react-router-dom";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 /** API Class.
@@ -12,7 +14,7 @@ class SharebnbApi {
   // Remember, the backend needs to be authorized with a token
   // We're providing a token you can use to interact with the backend API
   // DON'T MODIFY THIS TOKEN
-  static token = "";
+  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imhvc3QxMiIsImlzX2hvc3QiOnRydWUsImlhdCI6MTcwMDE2NDcxOX0.2RAoaTD4AxekTFUW0M_2daaWrMYl036aTwV8wV8SrDc";
 
   static async request(endpoint, data, method = "GET") {
     const url = new URL(`${BASE_URL}/${endpoint}`);
@@ -20,6 +22,7 @@ class SharebnbApi {
       authorization: `Bearer ${SharebnbApi.token}`,
       'content-type': 'application/json',
     };
+
 
     url.search = (method === "GET")
       ? new URLSearchParams(data).toString()
@@ -53,13 +56,32 @@ class SharebnbApi {
 
   // Individual API routes
 
-  /** Takes optional filters and returns array of companies */
-
   static async getListings(data) {
 
     const res = await this.request(`listings`, data);
 
     return res.listings; //array
+  }
+
+  static async addListing(data){
+    // try{
+    //   await this.request(`listings/add`, data, "POST");
+    // } catch(err){
+    //   console.log(err);
+    // }
+    const formData = new FormData();
+
+    for(let name in data){
+      formData.append(name, data[name]);
+    }
+
+    console.log("Form Data", formData)
+
+    const res = await fetch(`${BASE_URL}/listings/add`, {
+      method: "POST",
+      body: formData,
+      authorization: `Bearer ${SharebnbApi.token}`
+    })
   }
 
   /** Get details on a company by handle. */
