@@ -14,8 +14,8 @@ class SharebnbApi {
   // Remember, the backend needs to be authorized with a token
   // We're providing a token you can use to interact with the backend API
   // DON'T MODIFY THIS TOKEN
-  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imhvc3QxMjMiLCJpc19ob3N0Ijp0cnVlLCJpYXQiOjE3MDAxNjYwNDh9.NTZVnDr0UiJec_GTqoBZiOQ6Tp8OxcFbgJXF2I2yI5Y";
-
+  // static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imhvc3QxMjMiLCJpc19ob3N0Ijp0cnVlLCJpYXQiOjE3MDAxNjYwNDh9.NTZVnDr0UiJec_GTqoBZiOQ6Tp8OxcFbgJXF2I2yI5Y";
+  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhcHB5eXkiLCJpc19ob3N0Ijp0cnVlLCJpYXQiOjE3MDAxNzExNjh9.OOCz9qwms7vzSXA5uufts0dqZQ_GVCIEYtk6wmqYBrQ";
   static async request(endpoint, data, method = "GET") {
     const url = new URL(`${BASE_URL}/${endpoint}`);
     const headers = {
@@ -63,7 +63,7 @@ class SharebnbApi {
     return res.listings; //array
   }
 
-  static async addListing(data){
+  static async addListing(data) {
     // try{
     //   await this.request(`listings/add`, data, "POST");
     // } catch(err){
@@ -71,19 +71,19 @@ class SharebnbApi {
     // }
     const formData = new FormData();
 
-    for(let name in data){
+    for (let name in data) {
       formData.append(name, data[name]);
     }
 
-    console.log("Form Data", formData)
+    console.log("Form Data", formData);
 
     const res = await fetch(`${BASE_URL}/listings/add`, {
       method: "POST",
       body: formData,
-      headers:{
+      headers: {
         authorization: `Bearer ${SharebnbApi.token}`
       }
-    })
+    });
   }
 
   /** Get details on a company by handle. */

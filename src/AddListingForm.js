@@ -6,32 +6,32 @@ import { useNavigate } from 'react-router-dom';
 function AddListingForm() {
   const [formData, setFormData] = useState({
     title: "",
-    description:"",
-    address:"",
-    city:"",
-    state:"",
-    zipcode:"",
-    price_per_day:""
-  })
+    description: "",
+    address: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    price_per_day: ""
+  });
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
-  function handleChange(evt){
-    const {name, value} = evt.target;
+  function handleChange(evt) {
+    const { name, value } = evt.target;
 
     setFormData(curr => {
-      return {...curr, [name]:value}
+      return { ...curr, [name]: value };
     });
   }
 
-  function handleFileChange(evt){
+  function handleFileChange(evt) {
     setImage(evt.target.files[0]);
   }
 
-  async function handleSubmit(evt){
+  async function handleSubmit(evt) {
     evt.preventDefault();
     // FIXME: Hard coded host_id
-    const data = {...formData, image};
+    const data = { ...formData, image };
     await SharebnbApi.addListing(data);
     navigate("/listing");
   }
@@ -39,7 +39,7 @@ function AddListingForm() {
 
   return (
     <div className='AddListingForm'>
-      <h1>Signup</h1>
+      <h1>Add your space</h1>
       <form
         onSubmit={handleSubmit}
         className="bg-secondary bg-opacity-75 p-3 rounded"
