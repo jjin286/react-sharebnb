@@ -31,7 +31,7 @@ function AddListingForm() {
   async function handleSubmit(evt){
     evt.preventDefault();
     // FIXME: Hard coded host_id
-    const data = {...formData, image, host_id:"host"};
+    const data = {...formData, image};
     await SharebnbApi.addListing(data);
     navigate("/listing");
   }

@@ -14,7 +14,7 @@ class SharebnbApi {
   // Remember, the backend needs to be authorized with a token
   // We're providing a token you can use to interact with the backend API
   // DON'T MODIFY THIS TOKEN
-  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imhvc3QxMiIsImlzX2hvc3QiOnRydWUsImlhdCI6MTcwMDE2NDcxOX0.2RAoaTD4AxekTFUW0M_2daaWrMYl036aTwV8wV8SrDc";
+  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imhvc3QxMjMiLCJpc19ob3N0Ijp0cnVlLCJpYXQiOjE3MDAxNjYwNDh9.NTZVnDr0UiJec_GTqoBZiOQ6Tp8OxcFbgJXF2I2yI5Y";
 
   static async request(endpoint, data, method = "GET") {
     const url = new URL(`${BASE_URL}/${endpoint}`);
@@ -80,7 +80,9 @@ class SharebnbApi {
     const res = await fetch(`${BASE_URL}/listings/add`, {
       method: "POST",
       body: formData,
-      authorization: `Bearer ${SharebnbApi.token}`
+      headers:{
+        authorization: `Bearer ${SharebnbApi.token}`
+      }
     })
   }
 

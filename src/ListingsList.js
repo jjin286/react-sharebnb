@@ -19,7 +19,7 @@ function ListingsList() {
   }
 
   return (
-    <div className="ListingsList">
+    <div className="ListingsList" style={{display: "flex", flexWrap:"wrap"}}>
       <SearchForm search={getListings}/>
       {listings.map(l => <ListingCard listing={l} />)}
     </div>
@@ -27,3 +27,5 @@ function ListingsList() {
 }
 
 export default ListingsList;
+
+//TODO: THE fix was the header was messed up, didn't use header:{}. Mistake was just using authorization:""
