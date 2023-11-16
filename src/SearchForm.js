@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function SearchForm() {
+function SearchForm({search}) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  function handleChange(evt){
+    const searchTerm = evt.target.value;
+    setSearchTerm(searchTerm);
+  }
+
+  function handleSubmit(evt){
+    evt.preventDefault();
+    search(searchTerm.trim());
+  }
+
   return (
-    <div>SearchForm</div>
+    <div className='SearchForm'>
+      <form onSubmit={handleSubmit}>
+        <input
+          className=""
+          name="search"
+          onChange={handleChange}
+          value={searchTerm}
+        />
+        <button type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   );
 }
 

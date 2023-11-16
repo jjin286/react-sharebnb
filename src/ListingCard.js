@@ -1,8 +1,13 @@
 import React from 'react';
 
-function ListingCard() {
+function ListingCard({listing}) {
   return (
-    <div>ListingCard</div>
+    <div className='ListingCard'>
+      <img src={listing.image} alt={listing.title}/>
+      <p>{listing.title}</p>
+      <p>{listing.city}</p>
+      <p>{listing.price_per_day}</p>
+    </div>
   );
 }
 
