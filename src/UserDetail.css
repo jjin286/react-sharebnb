@@ -21,6 +21,8 @@
   color: #f7b01e;
 }
 
+
+
 /* .BookingFormContainer {
   flex: 0 0 500px;
 
@@ -31,5 +33,6 @@
   /* display: flex; */
   /* width: 100%; */
   display: flex;
+  flex: 1;
 
 }

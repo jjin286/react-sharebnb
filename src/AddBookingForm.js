@@ -31,7 +31,7 @@ function AddBookingForm({ book }) {
         }
       ]
     );
-    setMsg(`Booking confirmed for ${state[0].startDate} to ${state[0].endDate}`);
+    setMsg(`Booking confirmed for ${state[0].startDate.toLocaleDateString()} to ${state[0].endDate.toLocaleDateString()}`);
   }
 
   return (

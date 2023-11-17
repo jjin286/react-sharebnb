@@ -19,6 +19,15 @@
   max-height: 200px;
 }
 
+.card-info>p {
+  color: #f7b01e;
+
+}
+
+a {
+  text-decoration: none;
+}
+
 
 
 

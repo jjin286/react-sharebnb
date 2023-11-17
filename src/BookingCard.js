@@ -14,8 +14,8 @@ function BookingCard({ booking }) {
       <p><b>Address: </b>{listingInfo.address}, {listingInfo.city}, {listingInfo.state}, {listingInfo.zipcode}</p>
       <p><b>Days booked: </b> {daysBooked}</p>
       <p><b>Total Cost:</b>${total} </p>
-      <p><b>Check in: </b>{booking.check_in_date}</p>
-      <p><b>Check out: </b>{booking.check_out_date}</p>
+      <p><b>Check in: </b>{start.toLocaleDateString()}</p>
+      <p><b>Check out: </b>{end.toLocaleDateString()}</p>
     </div>
   );
 }
