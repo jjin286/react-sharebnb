@@ -65,7 +65,9 @@ function App() {
   }
 
   async function book(listingId, check_in_date, check_out_date) {
-    SharebnbApi.book( listingId, check_in_date, check_out_date );
+    await SharebnbApi.book(listingId, check_in_date, check_out_date);
+    //rerenders so new bookings shows
+    await getUser(user.username);
   }
 
   if (token !== null && user === null) {
