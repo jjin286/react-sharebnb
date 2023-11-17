@@ -1,0 +1,17 @@
+.BookingsList-card {
+  display: flex;
+
+}
+
+.BookingsList {
+
+  margin: auto;
+  margin-top: 20px;
+  padding: 30px;
+  justify-content: center;
+
+}
+
+.BookingsList>h1 {
+  color: #f7b01e
+}

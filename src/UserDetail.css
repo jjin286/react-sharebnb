@@ -1,5 +1,4 @@
 .UserDetail {
-  display: flex;
   margin: 20px;
 }
 
@@ -7,7 +6,7 @@
   flex: 1;
   flex-wrap: wrap;
   display: inline-block;
-  width: 100%;
+  /* width: 100%; */
   justify-content: center;
   padding: 40px;
   padding-top: 0;
@@ -16,7 +15,6 @@
   margin-right: 20px;
   text-align: center;
   margin-left: 30px;
-
 }
 
 .UserCard>h1 {
@@ -30,6 +28,8 @@
 
 .UserDetail-list {
   /* flex: 0 0 100%; */
-  display: block;
+  /* display: flex; */
+  /* width: 100%; */
+  display: flex;
 
 }

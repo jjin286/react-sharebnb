@@ -15,7 +15,7 @@ function RouteList({ login, register, user, book }) {
       <>
         <Route path="/listing" element={<ListingsList />} />
         <Route path="/listing/:id" element={<ListingDetail book={book} />} />
-        <Route path='/user/:username' element={<UserDetail user={user}/>} />
+        <Route path='/user/:username' element={<UserDetail user={user} />} />
         <Route path="/login" element={<LoginForm login={login} />} />
         <Route path="/register" element={<RegisterForm register={register} />} />
         {user.is_host && <Route path="/listing/add" element={<AddListingForm />} />}
