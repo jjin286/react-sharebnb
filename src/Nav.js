@@ -18,8 +18,8 @@ function Nav({ user, logout }) {
   function loggedOut() {
     return (
       <>
-        <NavLink to="/listing">ShareBnB</NavLink> |
-        <NavLink to="/login">Login</NavLink> |
+        <NavLink to="/listing">ShareBnB</NavLink>
+        <NavLink to="/login">Login</NavLink>
         <NavLink to="/register">Register</NavLink>
       </>
     );

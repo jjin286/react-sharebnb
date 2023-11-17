@@ -1,6 +1,10 @@
 import React from 'react';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { FormControl } from '@mui/base/FormControl';
+
+import Button from '@mui/material/Button';
+import "./Login.css";
 
 function LoginForm({ login }) {
   const [formData, setFormData] = useState({
@@ -28,26 +32,29 @@ function LoginForm({ login }) {
 
 
   return (
-    <div>
+    <div className="LoginForm">
       <form onSubmit={handleSubmit}>
-
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          placeholder="username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange} />
-
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange} />
-
-        <button type="submit">Login</button>
+        <FormControl>
+          <div className='mb-3'>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange} />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange} />
+          </div>
+          <Button className="btn" type="submit">Login</Button>
+        </FormControl>
       </form>
     </div>
   );

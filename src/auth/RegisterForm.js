@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { FormControl } from '@mui/base/FormControl';
+import Button from '@mui/material/Button';
+import "./Register.css";
 
 function Register({ register }) {
   const [formData, setFormData] = useState({
@@ -26,7 +29,7 @@ function Register({ register }) {
       last_name: "",
       is_host: false
     });
-    navigate("/listings")
+    navigate("/listings");
   }
 
   function handleChange(evt) {
@@ -38,73 +41,90 @@ function Register({ register }) {
 
 
   return (
-    <div>
+    <div className="RegisterForm">
+      <h1>Join ShareBnb to explore more features</h1>
       <form onSubmit={handleSubmit}>
+        <FormControl>
 
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          placeholder="username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange} />
+          <div className="mb-3">
+            <label htmlFor="username">Username </label>
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange} />
+          </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange} />
+          <div className="mb-3">
+            <label htmlFor="password">Password </label>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange} />
+          </div>
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          placeholder="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange} />
+          <div className="mb-3">
+            <label htmlFor="email">Email </label>
+            <input
+              type="text"
+              placeholder="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange} />
 
-        <label htmlFor="first_name">First Name</label>
-        <input
-          type="text"
-          placeholder="first_name"
-          name="first_name"
-          value={formData.first_name}
-          onChange={handleChange} />
+          </div>
 
-        <label htmlFor="last_name">Last Name</label>
-        <input
-          type="text"
-          placeholder="last_name"
-          name="last_name"
-          value={formData.last_name}
-          onChange={handleChange} />
+          <div className="mb-3">
+            <label htmlFor="first_name">First Name </label>
+            <input
+              type="text"
+              placeholder="first_name"
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleChange} />
 
-        <fieldset>
-          <legend>Are you a host?</legend>
-          <label htmlFor="is_host">Yes</label>
-          <input
-            type="radio"
-            name="is_host"
-            value="true"
-            checked={formData.is_host === "true"}
-            onChange={handleChange} />
+          </div>
 
-          <label htmlFor="is_host">No</label>
-          <input
-            type="radio"
-            name="is_host"
-            value="false"
-            checked={formData.is_host === "false"}
-            onChange={handleChange} />
-        </fieldset>
+          <div className="mb-3">
+            <label htmlFor="last_name">Last Name </label>
+            <input
+              type="text"
+              placeholder="last_name"
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange} />
 
+          </div>
 
+          <div className="mb-3">
+            <fieldset>
+              <legend>Are you a host?</legend>
+              <label htmlFor="is_host">Yes</label>
+              <input
+                type="radio"
+                name="is_host"
+                value="true"
+                checked={formData.is_host === "true"}
+                onChange={handleChange} />
 
-        <button type="submit">Register</button>
+              <label htmlFor="is_host">No</label>
+              <input
+                type="radio"
+                name="is_host"
+                value="false"
+                checked={formData.is_host === "false"}
+                onChange={handleChange} />
+            </fieldset>
+
+          </div>
+
+          <Button className="btn" type="submit">Register</Button>
+        </FormControl>
       </form>
-    </div>
+    </div >
   );
 }
 
