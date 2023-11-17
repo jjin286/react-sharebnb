@@ -4,7 +4,7 @@ import "./ListingCard.css";
 
 function ListingCard({ listing }) {
   return (
-    <div className='ListingCard'>
+    <div >
       <Link to={`/listing/${listing.id}`}>
         <div className="card">
           <img src={listing.image} alt={listing.title} width={200} />
