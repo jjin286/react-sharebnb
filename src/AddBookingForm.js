@@ -4,6 +4,8 @@ import { DateRange } from 'react-date-range';
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { ms } from 'date-fns/locale';
+import Button from '@mui/material/Button';
+import "./AddBookingForm.css";
 
 function AddBookingForm({ book }) {
   const [state, setState] = useState([
@@ -19,7 +21,7 @@ function AddBookingForm({ book }) {
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    book( id, state[0].startDate, state[0].endDate );
+    book(id, state[0].startDate, state[0].endDate);
     setState(
       [
         {
@@ -29,18 +31,21 @@ function AddBookingForm({ book }) {
         }
       ]
     );
-    setMsg(`Booking confirmed for ${state[0].startDate} to ${state[0].endDate}`)
+    setMsg(`Booking confirmed for ${state[0].startDate} to ${state[0].endDate}`);
   }
 
   return (
-    <div>
+    <div className="AddBookingForm">
+      <h2>Pick your stay dates </h2>
       <DateRange
         editableDateInputs={true}
         onChange={item => setState([item.selection])}
         moveRangeOnFirstSelection={false}
         ranges={state}
       />
-      <button onClick={handleSubmit}>Book</button>
+      {/* <div className="AddBookingForm-button"> */}
+      <Button onClick={handleSubmit}>Book</Button>
+      {/* </div> */}
       {msg !== null && <h4>{msg}</h4>}
     </div>
   );

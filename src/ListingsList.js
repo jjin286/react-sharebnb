@@ -5,7 +5,7 @@ import ListingCard from './ListingCard';
 import SearchForm from './SearchForm';
 import "./ListingsList.css";
 
-const LOGO = "https://png.pngtree.com/png-vector/20230828/ourmid/pngtree-an-icon-of-a-cute-house-on-a-background-vector-png-image_6980704.png";
+const LOGO = "https://static.vecteezy.com/system/resources/previews/005/726/845/original/wood-green-fence-yard-logo-symbol-icon-illustration-graphic-design-vector.jpg";
 
 function ListingsList() {
   const [listings, setListings] = useState([]);
@@ -25,18 +25,22 @@ function ListingsList() {
   if (!listings) return <h1>Loading ...</h1>;
 
   return (
-    <div className="ListingsList" style={{ display: "flex", flexWrap: "wrap" }}>
+    // style={{ display: "flex", flexWrap: "wrap" }}
+    <div className="ListingsList" >
       <div className="header">
         <img className="logo"
           src={LOGO}
           alt="logo" />
+        <h1>ShareBnB</h1>
 
         <div className='search'>
           <SearchForm search={getListings} />
         </div>
       </div>
 
-      {listings.map(l => <ListingCard listing={l} />)}
+      <div className="card-section">
+        {listings.map(l => <ListingCard listing={l} />)}
+      </div>
     </div>
   );
 }

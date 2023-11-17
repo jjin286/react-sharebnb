@@ -41,3 +41,16 @@
   height: 100px;
   margin-left: 20px;
 }
+
+.header>h1 {
+  font-family: 'Alata', sans-serif;
+  color: #f7b01e
+}
+
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  margin: 20px;
+  margin-top: 0;
+}

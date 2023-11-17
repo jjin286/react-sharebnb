@@ -1,0 +1,22 @@
+.AddBookingForm>Button {
+
+  background-color: #f7b01e;
+  font-weight: 900;
+  text-transform: inherit;
+  color: white;
+  border: solid 1px white;
+  border-radius: 10%;
+  display: block;
+  margin-left: 200px;
+
+}
+
+.AddBookingForm>h2 {
+  color: #f7b01e;
+}
+
+.AddBookingForm>Button:hover {
+  background-color: white;
+  border: solid 1px #f7b01e;
+  color: #f7b01e;
+}
