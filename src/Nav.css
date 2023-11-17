@@ -1,6 +1,8 @@
 .nav {
   display: flex;
   align-items: center;
+  justify-content: end;
+  padding-top: 10px;
 }
 
 .nav a {
@@ -11,10 +13,11 @@
   transition: background-color 0.3s ease;
   margin-right: 10px;
   background-color: #f7b01e;
+  border: 1px solid white;
 }
 
 .nav a:hover {
   background-color: white;
   color: #f7b01e;
-  border: solid #f7b01e
+  border: 1px solid #f7b01e
 }
