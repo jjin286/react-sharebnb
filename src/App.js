@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
-  async function login({username, password}){
+  async function login({ username, password }) {
     const token = await SharebnbApi.login(username, password);
     const userInToken = jwtDecode(token);
     //{username, is_host, iat}
@@ -21,11 +21,11 @@ function App() {
     setToken(token);
   }
 
-  async function getUser(username){
+  async function getUser(username) {
     setUser(await SharebnbApi.getUser(username));
   }
 
-  async function register(data){
+  async function register(data) {
     const token = await SharebnbApi.register(data);
     const userInToken = jwtDecode(token);
     //{username, is_host, iat}
@@ -34,10 +34,14 @@ function App() {
     setToken(token);
   }
 
-  async function logout(){
+  async function logout() {
     SharebnbApi.token = "";
     setUser(null);
     setToken(null);
+  }
+
+  async function book(listingId, check_in_date, check_out_date) {
+    SharebnbApi.book({ listingId, check_in_date, check_out_date });
   }
 
   if (token !== null && user === null) {
@@ -51,8 +55,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav user={user} logout={logout}/>
-        <RouteList login={login} register={register} user={user}/>
+        <Nav user={user} logout={logout} />
+        <RouteList login={login} register={register} user={user} book={book} />
       </BrowserRouter>
     </div>
   );

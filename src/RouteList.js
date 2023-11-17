@@ -7,13 +7,13 @@ import AddListingForm from "./AddListingForm";
 import ListingDetail from './ListingDetails';
 
 
-function RouteList({ login, register, user }) {
+function RouteList({ login, register, user, book }) {
 
   function loggedIn() {
     return (
       <>
         <Route path="/listing" element={<ListingsList />} />
-        <Route path="/listing/:id" element={<ListingDetail />} />
+        <Route path="/listing/:id" element={<ListingDetail book={book} />} />
         <Route path="/login" element={<LoginForm login={login} />} />
         <Route path="/register" element={<RegisterForm register={register} />} />
         {user.is_host && <Route path="/listing/add" element={<AddListingForm />} />}
@@ -25,7 +25,7 @@ function RouteList({ login, register, user }) {
     return (
       <>
         <Route path="/listing" element={<ListingsList />} />
-        <Route path="/listing/:id" element={<ListingDetail />} />
+        <Route path="/listing/:id" element={<ListingDetail book={book} />} />
         <Route path="/login" element={<LoginForm login={login} />} />
         <Route path="/register" element={<RegisterForm register={register} />} />
       </>

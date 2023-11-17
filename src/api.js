@@ -65,7 +65,7 @@ class SharebnbApi {
   }
 
   static async getListing(listingId) {
-    console.log("LISTING ID", listingId)
+    console.log("LISTING ID", listingId);
     const res = await this.request(`listings/${listingId}`);
 
     return res.listing; //array
@@ -94,24 +94,28 @@ class SharebnbApi {
     });
   }
 
-  static async login(username, password){
-    const res = await this.request(`auth/login`, {username, password}, "POST");
+  static async login(username, password) {
+    const res = await this.request(`auth/login`, { username, password }, "POST");
 
     return res.token;
   }
 
-  static async register(formData){
+  static async register(formData) {
     const res = await this.request(`auth/register`, formData, "POST");
 
     return res.token;
   }
 
-  static async getUser(username){
+  static async getUser(username) {
     const res = await this.request(`users/${username}`);
 
     return res.user;
   }
 
+  static async book({ listingId, check_in_date, check_out_date }) {
+    const res = await this.request(`bookings/${listingId}`, { check_in_date, check_out_date }, "POST");
+    return res.booking;
+  }
   /** Get details on a company by handle. */
 
   // static async getCompany(handle) {
