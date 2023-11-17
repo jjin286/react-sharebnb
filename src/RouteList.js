@@ -5,6 +5,7 @@ import LoginForm from "./auth/LoginForm";
 import RegisterForm from "./auth/RegisterForm";
 import AddListingForm from "./AddListingForm";
 import ListingDetail from './ListingDetails';
+import UserDetail from './UserDetail';
 
 
 function RouteList({ login, register, user, book }) {
@@ -14,6 +15,7 @@ function RouteList({ login, register, user, book }) {
       <>
         <Route path="/listing" element={<ListingsList />} />
         <Route path="/listing/:id" element={<ListingDetail book={book} />} />
+        <Route path='/user/:username' element={<UserDetail user={user}/>} />
         <Route path="/login" element={<LoginForm login={login} />} />
         <Route path="/register" element={<RegisterForm register={register} />} />
         {user.is_host && <Route path="/listing/add" element={<AddListingForm />} />}

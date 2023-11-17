@@ -112,7 +112,9 @@ class SharebnbApi {
     return res.user;
   }
 
-  static async book({ listingId, check_in_date, check_out_date }) {
+  static async book( listingId, check_in_date, check_out_date ) {
+
+    console.log("LIST ID", listingId)
     const res = await this.request(`bookings/${listingId}`, { check_in_date, check_out_date }, "POST");
     return res.booking;
   }

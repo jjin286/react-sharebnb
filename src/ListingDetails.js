@@ -3,7 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import SharebnbApi from "./api";
 import AddBookingForm from "./AddBookingForm";
 
-function ListingDetail() {
+function ListingDetail({book}) {
   const [listing, setListing] = useState("");
   const { id } = useParams();
 
@@ -26,7 +26,7 @@ function ListingDetail() {
       <p>State: {listing.state}</p>
       <p>Zipcode: {listing.zipcode}</p>
       <p>Price per day: ${listing.price_per_day}</p>
-      <AddBookingForm />
+      <AddBookingForm book={book}/>
     </div>
   );
 }
