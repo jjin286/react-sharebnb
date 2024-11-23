@@ -48,9 +48,30 @@
 }
 
 .card-section {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* flex-wrap: wrap; */
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 10px;
   padding: 30px;
   margin: 20px;
   margin-top: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

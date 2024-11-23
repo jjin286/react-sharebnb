@@ -11,7 +11,7 @@ function ListingCard({ listing }) {
           <div className="card-info">
             <p>{listing.title}</p>
             <p>{listing.city}</p>
-            <p>{listing.price_per_day}</p>
+            <p>${listing.price_per_day}</p>
           </div>
         </div>
       </Link>
