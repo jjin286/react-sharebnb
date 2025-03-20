@@ -22,7 +22,7 @@ function ListingsList() {
   }
 
 
-  if (!listings) return <h1>Loading ...</h1>;
+
 
   return (
     // style={{ display: "flex", flexWrap: "wrap" }}
@@ -39,7 +39,15 @@ function ListingsList() {
       </div>
 
       <div className="card-section">
-        {listings.map(l => <ListingCard listing={l} />)}
+        {listings.length === 0
+        ? (
+          <>
+            <div></div>
+            <div className='loader'></div>
+          </>
+        )
+        : listings.map((l, i) => <ListingCard key={i} listing={l} />)
+        }
       </div>
     </div>
   );
